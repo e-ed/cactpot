@@ -18,7 +18,7 @@ public class Cell {
 	}
 	
 	public void printNumber() {
-		if (this.clicked == false) {
+		if (!this.clicked) {
 			System.out.printf("x ");
 		} else {
 			System.out.printf("%d ", this.value);

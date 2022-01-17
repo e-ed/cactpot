@@ -16,7 +16,8 @@ public class Cactpot {
 		int arrowChoice;
 		int sumOfChoice = 0;
 		int prize;
-		int totalPrize;
+		int totalPrize = 0;
+		
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
         ArrayList<Integer> numbersInRandomOrder = new ArrayList<>();
         ArrayList<Cell> cells;
@@ -46,17 +47,17 @@ public class Cactpot {
         while (clicksLeft > 0) {
         	
         	showBoard(cells);
-	        System.out.println("line: ");
+	        System.out.printf("line: ");
 	        iPlayerChoice = scanner.nextInt();
 	        iPlayerChoice--;
-	        System.out.println("row: ");
+	        System.out.printf("row: ");
 	        jPlayerChoice = scanner.nextInt();
 	        jPlayerChoice--;
 	        System.out.println();
 	        
 	        for (int i = 0; i < cells.size(); i++) {
 	        	if (iPlayerChoice == cells.get(i).iPosition && jPlayerChoice == cells.get(i).jPosition) {
-	        		if (cells.get(i).getClicked() == true) {
+	        		if (cells.get(i).getClicked()) {
 	        			System.out.println("already clicked");
 	        			clicksLeft++;
 	        		} else {
