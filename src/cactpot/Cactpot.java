@@ -122,7 +122,7 @@ public class Cactpot {
         System.out.println("Sum: " + sumOfChoice);
         
         prize = getPrize(sumOfChoice);
-        System.out.println("You got " + prize + " MGP!");
+        System.out.println("You got " + prize + " MGP!!");
         
         
         
