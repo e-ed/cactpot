@@ -18,28 +18,26 @@ public class Cactpot {
 		int prize;
 		int totalPrize;
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
-        ArrayList<Integer> usedNumbers = new ArrayList<>();
-        
+        ArrayList<Integer> numbersInRandomOrder = new ArrayList<>();
+        ArrayList<Cell> cells;
         
         for (int i = 0; i < 9; i++) {
-        	 randomIndex = rand.nextInt(9 - usedNumbers.size());
-        	 usedNumbers.add(numbers.get(randomIndex));
+        	 randomIndex = rand.nextInt(9 - numbersInRandomOrder.size());
+        	 numbersInRandomOrder.add(numbers.get(randomIndex));
         	 numbers.remove(randomIndex);
-        	 //System.out.println(numbers);
-        	 //System.out.println(usedNumbers);
         	
         }
         
-        Cell cell1 = new Cell(usedNumbers.get(0), 0, 0);
-        Cell cell2 = new Cell(usedNumbers.get(1), 0, 1);
-        Cell cell3 = new Cell(usedNumbers.get(2), 0, 2);
-        Cell cell4 = new Cell(usedNumbers.get(3), 1, 0);
-        Cell cell5 = new Cell(usedNumbers.get(4), 1, 1);
-        Cell cell6 = new Cell(usedNumbers.get(5), 1, 2);
-        Cell cell7 = new Cell(usedNumbers.get(6), 2, 0);
-        Cell cell8 = new Cell(usedNumbers.get(7), 2, 1);
-        Cell cell9 = new Cell(usedNumbers.get(8), 2, 2);
-        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9));
+        Cell cell1 = new Cell(numbersInRandomOrder.get(0), 0, 0);
+        Cell cell2 = new Cell(numbersInRandomOrder.get(1), 0, 1);
+        Cell cell3 = new Cell(numbersInRandomOrder.get(2), 0, 2);
+        Cell cell4 = new Cell(numbersInRandomOrder.get(3), 1, 0);
+        Cell cell5 = new Cell(numbersInRandomOrder.get(4), 1, 1);
+        Cell cell6 = new Cell(numbersInRandomOrder.get(5), 1, 2);
+        Cell cell7 = new Cell(numbersInRandomOrder.get(6), 2, 0);
+        Cell cell8 = new Cell(numbersInRandomOrder.get(7), 2, 1);
+        Cell cell9 = new Cell(numbersInRandomOrder.get(8), 2, 2);
+        cells = new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9));
         
         randomIndex = rand.nextInt(9);
         
@@ -67,7 +65,6 @@ public class Cactpot {
 	        		break;
 	        	}
 	        }
-	        counter = 0;
 	        clicksLeft--;
         }
         
@@ -84,30 +81,42 @@ public class Cactpot {
         System.out.println("5) Second Row");
         System.out.println("6) Third Row");
         System.out.println("7) Diagonal");
+        System.out.println("8) Second Diagonal");
         
         arrowChoice = scanner.nextInt();
         
         switch (arrowChoice) {
             case 1:
         	    sumOfChoice += cells.get(0).getValue() + cells.get(1).getValue() + cells.get(2).getValue();
+        	    System.out.println(cells.get(0).getValue() + "+" + cells.get(1).getValue() + "+" +  cells.get(2).getValue());
         	    break;
             case 2:
             	sumOfChoice += cells.get(3).getValue() + cells.get(4).getValue() + cells.get(5).getValue();
+            	System.out.println(cells.get(3).getValue() + "+" +  cells.get(4).getValue() + "+" +  cells.get(5).getValue());
             	break;
             case 3:
             	sumOfChoice += cells.get(6).getValue() + cells.get(7).getValue() + cells.get(8).getValue();
+            	System.out.println(cells.get(6).getValue() + "+" +  cells.get(7).getValue() + "+" +  cells.get(8).getValue());
             	break;
             case 4:
             	sumOfChoice += cells.get(0).getValue() + cells.get(3).getValue() + cells.get(6).getValue();
+            	System.out.println(cells.get(0).getValue() + "+" +  cells.get(3).getValue() + "+" +  cells.get(6).getValue());
             	break;
             case 5:
             	sumOfChoice += cells.get(1).getValue() + cells.get(4).getValue() + cells.get(7).getValue();
+            	System.out.println(cells.get(1).getValue() + "+" +  cells.get(4).getValue() + "+" +  cells.get(7).getValue());
             	break;
             case 6:
             	sumOfChoice += cells.get(2).getValue() + cells.get(5).getValue() + cells.get(8).getValue();
+            	System.out.println(cells.get(2).getValue() + "+" +  cells.get(5).getValue() + "+" +  cells.get(8).getValue());
             	break;
             case 7:
             	sumOfChoice += cells.get(0).getValue() + cells.get(4).getValue() + cells.get(8).getValue();
+            	System.out.println(cells.get(0).getValue() + "+" +  cells.get(4).getValue() + "+" +  cells.get(8).getValue());
+            	break;
+            case 8:
+            	sumOfChoice += cells.get(2).getValue() + cells.get(4).getValue() + cells.get(6).getValue();
+            	System.out.println(cells.get(2).getValue() + "+" +  cells.get(4).getValue() + "+" +  cells.get(6).getValue());
             	break;
         }
         
